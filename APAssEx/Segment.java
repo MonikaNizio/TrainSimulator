@@ -3,15 +3,17 @@ import java.util.ArrayList;
 //abstract class
 public abstract class Segment {
 	//FINAL ATTRIBUTES?
-	private String name;
-	private int length;
-	private int capacity;
+	protected String name;
+	protected int length;
+	protected int maxCapacity;
+	//protected int currentCapacity = 0;
 	//protected ArrayList<Train> trainsInSegment = new ArrayList<Train>(capacity);
 	
-	Segment(String name, int length, int capacity){
+	Segment(String name, int length, int maxCapacity){
 		this.name = name;
 		this.length = length;
-		this.capacity = capacity;
+		this.maxCapacity = maxCapacity;
+		//this.currentCapacity = currentCapacity;
 		//this.trainsInSegment = trainsInSegment;
 		
 	}
@@ -42,13 +44,7 @@ public abstract class Segment {
 		this.length = length;
 	}
 
-	public int getCapacity() {
-		return capacity;
-	}
-
-	public void setCapacity(int capacity) {
-		this.capacity = capacity;
-	}
+	
 
 //	public ArrayList<Train> getTrainsInSegment() {
 //		return trainsInSegment;
@@ -56,6 +52,22 @@ public abstract class Segment {
 //
 //	public void setTrainsInSegment(ArrayList<Train> trainsInSegment) {
 //		this.trainsInSegment = trainsInSegment;
+//	}
+
+	public int getMaxCapacity() {
+		return maxCapacity;
+	}
+
+	public void setMaxCapacity(int maxCapacity) {
+		this.maxCapacity = maxCapacity;
+	}
+
+//	public int getCurrentCapacity() {
+//		return currentCapacity;
+//	}
+//
+//	public void setCurrentCapacity(int currentCapacity) {
+//		this.currentCapacity = currentCapacity;
 //	}
 
 	public void setName(String name) {

@@ -1,20 +1,37 @@
 
 public abstract class Train implements Runnable {
-	static int id = 0;
-	int speed;
-	private Track currentTrack;
+	protected int id;
+	static int counter = 1;
+	protected int speed;
+	protected int position = 0;
+	//protected Track currentTrack;
 	
-	Train(int id, int speed){
-		Train.id = id + 1;
+	Train(int id, int speed, int position){
+		this.id = counter++;
 		this.speed = speed;
+		this.position = position;
 	}
 	
 	public void run() {
 		try {
 
-			while(true) {
-				Thread.sleep(1000/500);
-				Track next = currentTrack.getNext();
+			while(position <= RunMe.getRailwayList().size()) {
+				try {
+				if (RunMe.getRailwayList().get(position) instanceof Track) {
+					Thread.sleep(timeOnTrack(RunMe.getRailwayList().get(position).getLength()));
+				}
+				else {
+					Thread.sleep(timeInStation(RunMe.getRailwayList().get(position).getLength()));
+				}
+//				Thread.sleep(1000 * RunMe.getRailwayList().get(position).getLength() /this.speed);
+//				//System.out.println(RunMe.getRailwayList().get(position).getLength());
+//				//System.out.println(this.speed + " " + position);
+				position++;
+				//Track next = currentTrack.getNext();
+				}
+				catch(IndexOutOfBoundsException e) {
+					//FIX THIS
+				}
 			}
 
 			}
@@ -26,21 +43,38 @@ public abstract class Train implements Runnable {
 	public int timeOnTrack(int length) {
 		
 		//DOES this. TAKE SPEED FROM THE SUPERCLASS OR NOT?
-		int time = length/this.speed;
+		//multiply by 1000 to get seconds rather than ms to be used in thread
+		int time = 1000 * length/this.speed;
 		return time;
 	}
 	
 	public int timeInStation(int length) {
-		int time = length/this.speed + 5;
+		int time = 1000 * length/this.speed + 5;
 		return time;
 	}
 
-	public static int getId() {
+	public int getId() {
 		return id;
 	}
 
-	public static void setId(int id) {
-		Train.id = id;
+	public void setId(int id) {
+		this.id = id;
+	}
+
+	public int getSpeed() {
+		return speed;
+	}
+
+	public void setSpeed(int speed) {
+		this.speed = speed;
+	}
+
+	public int getPosition() {
+		return position;
+	}
+
+	public void setPosition(int position) {
+		this.position = position;
 	}
 	
 	
