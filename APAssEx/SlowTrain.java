@@ -1,8 +1,8 @@
 
 public class SlowTrain extends Train{
 
-	SlowTrain(int ID, int speed) {
-		super(ID, 100);
+	SlowTrain() {
+		super(0, 100, 0);
 		// TODO Auto-generated constructor stub
 	}
 

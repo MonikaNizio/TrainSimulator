@@ -1,7 +1,9 @@
+import java.util.ArrayList;
 
 public class Track extends Segment{
 
 	private Track next;
+	//protected ArrayList<Train> trainsInSegment = new ArrayList<Train>(capacity);
 	
 	public Track() {
 
