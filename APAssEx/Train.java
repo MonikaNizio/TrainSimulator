@@ -49,7 +49,7 @@ public abstract class Train implements Runnable {
 	}
 	
 	public int timeInStation(int length) {
-		int time = 1000 * length/this.speed + 5;
+		int time = 1000 * length/this.speed + 5000;
 		return time;
 	}
 

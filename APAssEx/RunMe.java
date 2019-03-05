@@ -3,14 +3,21 @@ import java.util.ArrayList;
 public class RunMe {
 	
 	static private ArrayList<Segment> railwayList = new ArrayList<Segment>();
-	public static Train newTrain = new SlowTrain();
+	//public static Train newTrain = new SlowTrain();
 
 	public static void main(String[] args) {
 		//Train newTrain = new FastTrain();
-		Thread printThread = new Thread(new PrintRailway());
-		Thread trainThread = new Thread(newTrain);
-		printThread.start();
-		trainThread.start();
+		TrafficGenerator trafficGenerator = new TrafficGenerator();
+//		new Thread(trafficGenerator).start();
+		PrintRailway printRailway = new PrintRailway(trafficGenerator);
+		//Thread printThread = new Thread(printRailway);
+		 new Thread(printRailway).start();
+		//Thread printThread = new Thread(new PrintRailway(trafficGenerator));
+		
+		//Thread trainThread = new Thread(newTrain);
+		//printThread.start();
+		
+		//trainThread.start();
 		ArrayList<Station> stationList = new ArrayList<Station>();
 
 		//MAKE THIS ADAPTABLE TO DIFFERENT NUMBER OF STATIONS
