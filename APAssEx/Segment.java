@@ -1,4 +1,4 @@
-import java.util.ArrayList;
+//import java.util.ArrayList;
 
 //abstract class
 public abstract class Segment {
@@ -6,14 +6,14 @@ public abstract class Segment {
 	protected String name;
 	protected int length;
 	protected int maxCapacity;
-	//protected int currentCapacity = 0;
+	protected int currentCapacity = 0;
 	//protected ArrayList<Train> trainsInSegment = new ArrayList<Train>(capacity);
 	
-	Segment(String name, int length, int maxCapacity){
+	Segment(String name, int length, int maxCapacity, int currentCapacity){
 		this.name = name;
 		this.length = length;
 		this.maxCapacity = maxCapacity;
-		//this.currentCapacity = currentCapacity;
+		this.currentCapacity = currentCapacity;
 		//this.trainsInSegment = trainsInSegment;
 		
 	}
@@ -22,6 +22,14 @@ public abstract class Segment {
 	public String toString() {
 		// TODO Auto-generated method stub
 		return getName();
+	}
+	
+	public boolean checkSegmentFull() {
+		if(currentCapacity==maxCapacity) {
+			return true;
+		}else {
+			return false;
+		}  
 	}
 	
 //	public void addTrainToArrayList(Train train) {
@@ -39,10 +47,10 @@ public abstract class Segment {
 	public int getLength() {
 		return length;
 	}
-
-	public void setLength(int length) {
-		this.length = length;
-	}
+//
+//	public void setLength(int length) {
+//		this.length = length;
+//	}
 
 	
 
@@ -54,25 +62,24 @@ public abstract class Segment {
 //		this.trainsInSegment = trainsInSegment;
 //	}
 
-	public int getMaxCapacity() {
-		return maxCapacity;
-	}
-
-	public void setMaxCapacity(int maxCapacity) {
-		this.maxCapacity = maxCapacity;
-	}
-
+//	public int getMaxCapacity() {
+//		return maxCapacity;
+//	}
+//
+//	public void setMaxCapacity(int maxCapacity) {
+//		this.maxCapacity = maxCapacity;
+//	}
+//
 //	public int getCurrentCapacity() {
 //		return currentCapacity;
 //	}
 //
-//	public void setCurrentCapacity(int currentCapacity) {
-//		this.currentCapacity = currentCapacity;
-//	}
-
-	public void setName(String name) {
-		this.name = name;
+	public void setCurrentCapacity(int currentCapacity) {
+		this.currentCapacity = currentCapacity;
 	}
-	
+//
+//	public void setName(String name) {
+//		this.name = name;
+//	}
 	
 }

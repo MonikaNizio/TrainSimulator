@@ -24,26 +24,11 @@ public class PrintRailway implements Runnable {
 						}
 					}
 					
-
-
-//					for(int j=0; j<RunMe.getRailwayList().get(i).getTrainsInSegment().size(); j++) {
-//						RunMe.getRailwayList().get(i).getTrainsInSegment().get(i);
-//						System.out.print(Train.getId() + ",");
-//					}
 					System.out.print("----|");
 
 				}
 				System.out.println();
-				
-//				for(int i=0;i<trafficGenerator.getTrainList().size();i++) {
-//				System.out.println(trafficGenerator.getTrainList().get(i).getId());
-//			}
-//				if (trafficGenerator.getTrainList().size() > 0) {
-//					System.out.println(trafficGenerator.getTrainList().get(0).getId());
-//				}
-				
-//				System.out.println(trafficGenerator.getTrainList().size());
-				
+								
 			}
 		} catch (InterruptedException e) {
 
